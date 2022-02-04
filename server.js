@@ -15,22 +15,8 @@ app.set('view engine', 'ejs');
 // Assets
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.render('home');
-})
+require('./routes/web.js')(app);
 
-
-app.get('/cart', (req, res) => {
-    res.render('customers/cart');
-})
-
-app.get('/login', (req, res) => {
-    res.render('auth/login');
-})
-
-app.get('/register', (req, res) => {
-    res.render('auth/register');
-})
 
 app.listen(PORT, () => {
     console.log(`Listening on Port ${PORT}`)
