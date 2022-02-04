@@ -1,0 +1,65 @@
+[{
+    "_id": {
+        "$oid": "5eee651f739f8c674fd736ee"
+    },
+    "name": "Tandoori Chicken",
+    "image": "pizza.jpg",
+    "price": "250",
+    "size": "HALF"
+}, {
+    "_id": {
+        "$oid": "5eee6671a27a66807cf2bea3"
+    },
+    "name": "Butter Chicken",
+    "image": "Butter-Chicken.jpg",
+    "price": "300",
+    "size": "Full"
+}, {
+    "_id": {
+        "$oid": "5eee6692a27a66807cf2bea4"
+    },
+    "name": "Sarson Ka Saag",
+    "image": "Sarson-Ka-Saag.jpg",
+    "price": "150",
+    "size": "small"
+}, {
+    "_id": {
+        "$oid": "5eee66a5a27a66807cf2bea5"
+    },
+    "name": "Masala Dosa",
+    "image": "Masala-Dosa.jpg",
+    "price": "170",
+    "size": "large"
+}, {
+    "_id": {
+        "$oid": "5eee66c4a27a66807cf2bea6"
+    },
+    "name": "Margherita Cheese Pizza",
+    "image": "pizzad.jpg",
+    "price": "250",
+    "size": "medium"
+}, {
+    "_id": {
+        "$oid": "5eee66cfa27a66807cf2bea7"
+    },
+    "name": "Chicken Handi Biryani",
+    "image": "Biryani.jpg",
+    "price": "250",
+    "size": "Full Plate"
+}, {
+    "_id": {
+        "$oid": "5eee66eea27a66807cf2bea8"
+    },
+    "name": "Peri Peri Chicken wrap",
+    "image": "Wrap.jpg",
+    "price": "100",
+    "size": "large"
+}, {
+    "_id": {
+        "$oid": "5eee6717a27a66807cf2bea9"
+    },
+    "name": "Veg Momos",
+    "image": "momos.jpg",
+    "price": "50",
+    "size": "Half Plate"
+}]
