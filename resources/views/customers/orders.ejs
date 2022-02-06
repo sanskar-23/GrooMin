@@ -1,0 +1,67 @@
+<section class="orders light-section">
+    <div class="container mx-auto pt-12">
+        <h1 class="font-bold text-lg mb-4">All Orders</h1>
+        <% if(messages.success) { %>
+            <div id="success-alert" class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3" role="alert">
+                <p>
+                    <%= messages.success %>
+                </p>
+            </div>
+            <% } %>
+                <table class="w-full table-auto bg-white">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2 text-left text-black">
+                                Orders
+                            </th>
+                            <th class="px-4 py-2 text-left text-black">
+                                Phone No
+                            </th>
+                            <th class="px-4 py-2 text-left text-black">
+                                Address
+                            </th>
+                            <th class="px-4 py-2 text-left text-black">
+                                Time
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(orders.length){ %>
+                            <% orders.forEach((order)=> { %>
+                                <tr>
+                                    <td class="border py-4 px-2 text-black">
+                                        <a class="link" href="/">
+                                            <%= order._id %>
+                                        </a>
+                                    </td>
+                                    <td class="border py-4 px-2 text-black">
+                                        <%= order.phone %>
+                                    </td>
+                                    <td class="border py-4 px-2 text-black">
+                                        <%= order.address %>
+                                    </td>
+                                    <td class="border py-4 px-2 text-black">
+                                        <%= moment(order.createdAt).format('hh:mm A') %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                    <% } else { %>
+
+                                        <div class="empty-cart py-16">
+                                            <div class="container mx-auto text-center">
+                                                <h1 class="text-3xl font-bold mb-2">Cart Empty :(</h1>
+                                                <p class="text-gray-500 text-lg mb-12">You Probably haven't ordered any food Yet. <br> To Order some delicious food go on to the Home Page
+                                                </p>
+
+                                                <img class="w-2/5 mx-auto" src="/img/empty-cart.png" alt="">
+                                                <a href="/" class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-12">Go
+                                                    back</a>
+                                            </div>
+                                        </div>
+
+
+                                        <% } %>
+                    </tbody>
+                </table>
+    </div>
+</section>

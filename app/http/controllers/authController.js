@@ -1,7 +1,6 @@
 const User = require('../../models/user')
 const bcrypt = require('bcrypt')
-const passport = require('passport')
-const session = require('express-session');
+const passport = require('passport');
 
 function authController() {
     return {
@@ -9,6 +8,12 @@ function authController() {
             res.render('auth/login');
         },
         postLogin(req, res, next) {
+            const { email, password } = req.body;
+            // validate user
+            if (!email || !password) {
+                req.flash('error', 'All Fields are required!')
+                return res.redirect('/login');
+            }
             passport.authenticate('local', (err, user, info) => {
                 if (err) {
                     req.flash('error', info.message);
