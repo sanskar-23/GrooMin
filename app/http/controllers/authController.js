@@ -28,8 +28,13 @@ function authController() {
                         req.flash('error', info.message);
                         return next(err);
                     }
+                    if (req.user.role === 'admin') {
+                        return res.redirect('/admin/orders');
+                    } else if (req.user.role === 'customer') {
+                        req.flash('success', `Welcome ${req.user.name}`)
+                        return res.redirect('/customer/orders');
+                    }
 
-                    return res.redirect('/');
                 })
             })(req, res, next)
         },
