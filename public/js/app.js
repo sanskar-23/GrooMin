@@ -2251,7 +2251,7 @@ var alertMsg = document.querySelector('#success-alert');
 if (alertMsg) {
   setTimeout(function () {
     alertMsg.remove();
-  }, 5000);
+  }, 3000);
 }
 
 initAdmin();

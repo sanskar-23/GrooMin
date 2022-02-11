@@ -379,17 +379,17 @@ body {
 }
 
 nav li:last-child a {
-  background: #FE5F1E;
+  background: #00A5F5;
 }
 nav li:last-child a:hover {
-  background: #b23301;
+  background: #0051F5;
 }
 
 nav li a {
   transition: all 0.3s ease-in-out;
 }
 nav li a:hover {
-  color: #FE5F1E;
+  color: #00A5F5;
 }
 
 section.hero {
@@ -398,7 +398,7 @@ section.hero {
 
 .hmm:hover {
   transition: all 0.3s ease-in-out;
-  color: #FE5F1E;
+  color: #00A5F5;
 }
 
 .size {
@@ -406,12 +406,12 @@ section.hero {
 }
 
 .add-to-cart {
-  border: 2px solid #FE5F1E;
-  color: #FE5F1E;
+  border: 2px solid #00A5F5;
+  color: #00A5F5;
   transition: all 0.3s ease-in-out;
 }
 .add-to-cart:hover {
-  background: #FE5F1E;
+  background: #00A5F5;
   border-color: #fff;
   color: #fff;
 }
@@ -420,18 +420,18 @@ section.hero {
 }
 
 .btn-primary {
-  background: #FE5F1E;
+  background: #00A5F5;
   transition: all 0.3s ease-in-out;
 }
 .btn-primary:hover {
-  background: #b23301;
+  background: #0051F5;
 }
 
 section.cart {
   background: #F8F8F8;
 }
 section.cart .amount {
-  color: #FE5F1E;
+  color: #00A5F5;
 }
 
 section.login {
@@ -439,10 +439,10 @@ section.login {
   min-height: calc(100vh - 86px);
 }
 section.login a {
-  color: #FE5F1E;
+  color: #00A5F5;
 }
 section.login a:hover {
-  color: #b23301;
+  color: #0051F5;
 }
 
 .noty_theme_nest {
@@ -451,5 +451,102 @@ section.login a:hover {
 }
 
 a.link {
-  color: #FE5F1E;
+  color: #00A5F5;
+}
+
+section.status {
+  background: #F8F8F8;
+  min-height: calc(100vh - 86px);
+}
+
+.status-box {
+  padding: 60px 0 0;
+}
+
+.status-box ul li span {
+  position: relative;
+  padding-left: 20px;
+}
+
+.status-box ul {
+  margin-left: 84px;
+}
+
+.status-box ul li span:after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  background: #232323;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 1px 10px #F8F8F8;
+}
+
+.status-box ul li span:before {
+  font-family: "Line Awesome Free";
+  font-size: 46px;
+  font-weight: 600;
+  top: 50%;
+  left: -90px;
+  position: absolute;
+  transform: translateY(-50%);
+  color: inherit;
+}
+
+.status-box ul li:nth-child(1) span:before {
+  content: "\f46c";
+}
+
+.status-box ul li:nth-child(2) span:before {
+  content: "\f560";
+}
+
+.status-box ul li:nth-child(3) span:before {
+  content: "\f818";
+}
+
+.status-box ul li:nth-child(4) span:before {
+  content: "\f0d1";
+}
+
+.status-box ul li:nth-child(5) span:before {
+  content: "\f582";
+}
+
+.status-box ul li {
+  position: relative;
+}
+
+.status-box ul li:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 2px;
+  height: 100%;
+  background: #232323;
+  margin-top: 10px;
+}
+
+.status-box ul li:nth-child(5) span:after {
+  box-shadow: 0 20px 1px 20px #F8F8F8;
+}
+
+.status-box ul li.step-completed:before {
+  background: #ccc;
+}
+
+.status-box ul li.step-completed span:after {
+  background: #ccc;
+}
+
+.status-box ul li.step-completed span {
+  color: #ccc;
+}
+
+.status-box ul li.current span {
+  color: #00A5F5;
 }
