@@ -2254,7 +2254,16 @@ if (alertMsg) {
   }, 3000);
 }
 
-initAdmin();
+initAdmin(); // Change Order Status
+
+var hiddenInput = document.querySelector('#hiddenInput');
+var order = hiddenInput ? hiddenInput.value : null;
+order = JSON.parse(order);
+console.log(order);
+
+function updateStatus(order) {}
+
+updateStatus(order);
 
 /***/ }),
 

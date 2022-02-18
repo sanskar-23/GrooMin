@@ -186,3 +186,8 @@ section.status {
 .status-box ul li.current span {
     color: $primary
 }
+
+// Dots Gray
+.status-box ul li.current span:after {
+    background: $primary;
+}

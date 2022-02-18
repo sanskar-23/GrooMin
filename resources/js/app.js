@@ -42,3 +42,14 @@ if (alertMsg) {
 }
 
 initAdmin();
+
+// Change Order Status
+let hiddenInput = document.querySelector('#hiddenInput')
+let order = hiddenInput ? hiddenInput.value : null
+order = JSON.parse(order);
+
+function updateStatus(order) {
+
+}
+
+updateStatus(order)
