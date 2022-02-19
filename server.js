@@ -14,7 +14,7 @@ const Emitter = require('events');
 
 
 // Database Connection
-mongoose.connect('mongodb://localhost:27017/GrooMin');
+mongoose.connect(process.env.MONGO_CONNECTION_URL);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -40,7 +40,7 @@ app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
     store: MongoDbStore.create({
-        mongoUrl: 'mongodb://localhost:27017/GrooMin'
+        mongoUrl: process.env.MONGO_CONNECTION_URL
     }),
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
@@ -76,6 +76,9 @@ app.set('view engine', 'ejs');
 
 
 require('./routes/web.js')(app);
+app.use((req, res) => {
+    res.status(404).render('errors/404')
+})
 
 
 const server = app.listen(PORT, () => {

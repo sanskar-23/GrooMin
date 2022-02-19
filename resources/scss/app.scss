@@ -1,6 +1,10 @@
 @import './variables';
 @import "~noty/src/noty.scss";
 @import "~noty/src/themes/nest.scss";
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     -webkit-font-smoothing: antialiased;
