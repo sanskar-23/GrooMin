@@ -2242,6 +2242,12 @@ module.exports = initAdmin;
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 var Noty = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
@@ -2293,7 +2299,10 @@ if (alertMsg) {
   }, 3000);
 }
 
-initAdmin(); // Change Order Status
+if (window.location.pathname.includes('admin')) {
+  initAdmin();
+} // Change Order Status
+
 
 var statuses = document.querySelectorAll('.status_line');
 var hiddenInput = document.querySelector('#hiddenInput');
@@ -2302,6 +2311,10 @@ order = JSON.parse(order);
 var time = document.createElement('small');
 
 function updateStatus(order) {
+  statuses.forEach(function (status) {
+    status.classList.remove('step-completed');
+    status.classList.remove('current');
+  });
   var stepCompleted = true;
   statuses.forEach(function (status) {
     var dataProp = status.dataset.status;
@@ -2329,6 +2342,22 @@ var socket = io(); // create a room for every order
 if (order) {
   socket.emit('join', "order_".concat(order._id));
 }
+
+socket.on('orderUpdated', function (data) {
+  var updatedOrder = _objectSpread({}, order);
+
+  updatedOrder.updatedAt = moment().format();
+  updatedOrder.status = data.status;
+  updateStatus(updatedOrder);
+  new Noty({
+    type: 'success',
+    theme: 'nest',
+    layout: 'topRight',
+    timeout: 500,
+    progressBar: false,
+    text: "Order Updated"
+  }).show();
+});
 
 /***/ }),
 
