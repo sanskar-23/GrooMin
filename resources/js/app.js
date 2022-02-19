@@ -1,6 +1,8 @@
 const axios = require('axios');
-const Noty = require('noty')
+const Noty = require('noty');
+const { createIndexes } = require('../../app/models/user');
 const initAdmin = require('./admin')
+const moment = require('moment');
 let addToCart = document.querySelectorAll('.add-to-cart');
 let cartCounter = document.querySelector('#cartCounter');
 
@@ -44,12 +46,37 @@ if (alertMsg) {
 initAdmin();
 
 // Change Order Status
-let hiddenInput = document.querySelector('#hiddenInput')
+let statuses = document.querySelectorAll('.status_line');
+let hiddenInput = document.querySelector('#hiddenInput');
 let order = hiddenInput ? hiddenInput.value : null
 order = JSON.parse(order);
+let time = document.createElement('small');
 
 function updateStatus(order) {
-
+    let stepCompleted = true;
+    statuses.forEach((status) => {
+        let dataProp = status.dataset.status
+        if (stepCompleted) {
+            status.classList.add('step-completed');
+        }
+        if (dataProp === order.status) {
+            stepCompleted = false;
+            time.innerText = moment(order.updatedAt).format('hh:mm A');
+            status.appendChild(time);
+            if (status.nextElementSibling) {
+                status.nextElementSibling.classList.add('current');
+            }
+        }
+    })
 }
 
 updateStatus(order)
+
+// socket for client side
+let socket = io();
+
+// create a room for every order 
+
+if (order) {
+    socket.emit('join', `order_${order._id}`)
+}
