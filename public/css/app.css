@@ -423,6 +423,10 @@ section.hero {
   outline: none;
 }
 
+#deleteCartButton:focus {
+  outline: none;
+}
+
 .btn-primary {
   background: #00A5F5;
   transition: all 0.3s ease-in-out;

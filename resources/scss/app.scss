@@ -52,6 +52,12 @@ section.hero {
     }
 }
 
+#deleteCartButton {
+    &:focus {
+        outline: none;
+    }
+}
+
 .btn-primary {
     background: $primary;
     transition: $smooth;
