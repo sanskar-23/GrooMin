@@ -12,8 +12,8 @@ const MongoDbStore = require('connect-mongo');
 const passport = require('passport');
 const Emitter = require('events');
 // Database Connection
-// const dbURL = process.env.DB_URL
-mongoose.connect(process.env.MONGO_CONNECTION_URL || 'mongodb://localhost:27017/GrooMin');
+const dbURL = process.env.DB_URL
+mongoose.connect(dbURL || 'mongodb://localhost:27017/GrooMin');
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -39,7 +39,7 @@ app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
     store: MongoDbStore.create({
-        mongoUrl: process.env.MONGO_CONNECTION_URL || 'mongodb://localhost:27017/GrooMin'
+        mongoUrl: dbURL || 'mongodb://localhost:27017/GrooMin'
     }),
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
